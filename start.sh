@@ -1,4 +1,4 @@
-export MOVIE_API_KEY='b595f1c3a2ee9e4a80e9974540709b53'
-export SECRET_KEY='4777@jkl'
-
+# Exporting variables to the environment
+export MAIL_USERNAME=<Your Email Address>
+export MAIL_PASSWORD=<Your Email Password>
 python3.6 manage.py server
