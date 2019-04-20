@@ -1,6 +1,8 @@
 import urllib.request,json
 from .models import Movie
 
+# api_key = 'b595f1c3a2ee9e4a80e9974540709b53'
+# base_url = 'https://api.themoviedb.org/3/movie/{}?api_key={}'
 api_key = None
 base_url = None
 

@@ -1,6 +1,9 @@
 import os
 
 class Config:
+    # simple mde  configurations
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
 
     MOVIE_API_BASE_URL ='https://api.themoviedb.org/3/movie/{}?api_key={}'
     MOVIE_API_KEY = os.environ.get('MOVIE_API_KEY')
@@ -15,6 +18,8 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    SUBJECT_PREFIX = 'watchlist'
+    SENDER_EMAIL = 'orukopius8@gmail.com'
 
     @staticmethod
     def init_app(app):
@@ -24,11 +29,17 @@ class Config:
 class ProdConfig(Config):
     pass
 
+class TestConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://orukopius:12345@localhost/watchlist'
+
+
 
 class DevConfig(Config):
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://orukopius:12345@localhost/watchlist'
     DEBUG = True
 
 config_options = {
 'development':DevConfig,
-'production':ProdConfig
+'production':ProdConfig,
+'test':TestConfig
 }
